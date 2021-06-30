@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>RoomReservationApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+            <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+                <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
+    <header>
+        <nav>
+            <% if user_signed_in? %>
+                <%= "こんにちは#{current_user.email}さん"  %>
+                    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+                        <% else %>
+                            <%= link_to 'サインアップ', new_user_registration_path %>
+                                <%= link_to 'ログイン', new_user_session_path %>
+                                    <% end %>
+        </nav>
+    </header>
     <%= yield %>
-  </body>
+</body>
+
 </html>
