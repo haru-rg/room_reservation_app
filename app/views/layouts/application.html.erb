@@ -14,6 +14,7 @@
 <body>
     <header>
         <nav>
+
             <% if user_signed_in? %>
                 <%= "こんにちは#{current_user.email}さん"  %>
                     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
