@@ -19,7 +19,7 @@
                 <%= "こんにちは#{current_user.email}さん"  %>
                     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
                         <%= link_to 'ユーザー編集', edit_user_registration_path %>
-                            <%= link_to 'ルーム一覧(index)', rooms_path %>
+                            <%= link_to '登録済みルーム一覧(index)', rooms_path %>
                                 <%= link_to "ルーム新規登録", new_room_path %>
                                     <% else %>
                                         <%= link_to 'サインアップ', new_user_registration_path %>

@@ -1,1 +1,28 @@
 <p>show</p>
+<!--残アクション：user情報とreservation情報を連携させる-->
+<table>
+    <tr>
+        <th>room_id</th>
+        <th>room_image</th>
+        <th>room_name</th>
+        <th>room_address</th>
+        <th>room_price</th>
+    </tr>
+    <tr>
+        <td>
+            <%= @room.id %>
+        </td>
+        <td>
+            <%= @room.room_image %>
+        </td>
+        <td>
+            <%= @room.room_name %>
+        </td>
+        <td>
+            <%= @room.room_address %>
+        </td>
+        <td>
+            <%= @room.room_price %>
+        </td>
+    </tr>
+</table>
