@@ -16,7 +16,7 @@
         <nav>
 
             <% if user_signed_in? %>
-                <%= "こんにちは#{current_user.email}さん"  %>
+                <%= "こんにちは#{current_user.name}さん"  %>
                     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
                         <%= link_to 'ユーザー編集', edit_user_registration_path %>
                             <%= link_to '登録済みルーム一覧(index)', rooms_path %>
