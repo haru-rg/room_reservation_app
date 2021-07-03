@@ -1,4 +1,4 @@
-<p>show</p>
+<p>show ここに予約機能をつける</p>
 <!--残アクション：user情報とreservation情報を連携させる-->
 <table>
     <tr>
@@ -7,6 +7,8 @@
         <th>room_name</th>
         <th>room_address</th>
         <th>room_price</th>
+        <th>編集</th>
+        <th>削除</th>
     </tr>
     <tr>
         <td>
@@ -23,6 +25,12 @@
         </td>
         <td>
             <%= @room.room_price %>
+        </td>
+        <td>
+            <%= link_to "編集", [:edit, @room] %>
+        </td>
+        <td>
+            <%= link_to "削除", @room, method: :delete, data: { confirm: "本当に削除しますか？" } %>
         </td>
     </tr>
 </table>

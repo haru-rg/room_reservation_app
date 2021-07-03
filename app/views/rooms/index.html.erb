@@ -21,10 +21,10 @@
                     <%= room.id %>
                 </td>
                 <td>
-                    <%= image_tag room.room_image.to_s %>
+                    <%= link_to image_tag(room.room_image.to_s),room %>
                 </td>
                 <td>
-                    <%= room.room_name %>
+                    <%= link_to room.room_name, room %>
                 </td>
                 <td>
                     <%= room.room_address %>
@@ -33,7 +33,7 @@
                     <%= room.room_price %>
                 </td>
                 <td>
-                    <%= l room.created_at %>
+                    <%= room.created_at.to_s(:datetime_jp) %>
                 </td>
             </tr>
             <% end %>

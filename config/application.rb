@@ -18,5 +18,6 @@ module RoomReservationApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.time_zone = 'Tokyo' #日本時間を表示するために追加
   end
 end
