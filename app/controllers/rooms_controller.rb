@@ -10,12 +10,12 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room=Room.new(params.require(:room).permit(:room_name, :room_introduction, :room_price, :room_address, :room_image))
+    @room = Room.new(params.require(:room).permit(:room_name, :room_introduction, :room_price, :room_address, :room_image))
     @room.user_id = current_user.id
-    if@room.save
+    if @room.save
       redirect_to @room
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -32,7 +32,7 @@ class RoomsController < ApplicationController
     if @room.update(params.require(:room).permit(:room_name, :room_introduction, :room_price, :room_address, :room_image))
       redirect_to :rooms
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -40,5 +40,11 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @room.destroy
     redirect_to :rooms
+  end
+
+  def search
+    @rooms = Room.search(params[:keyword])
+    @keyword = params[:keyword]
+    render 'home/index'
   end
 end
