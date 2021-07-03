@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :name, presence: true #制限追記
   validates :introduction, length: { maximum: 200 } #制限追記
   validates :image, length: { maximum: 200 } #制限追記
+  has_many :rooms, dependent: :destroy
 end
