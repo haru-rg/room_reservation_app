@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @rooms = Room.all ##現在のユーザーのもののみ表示
+    @rooms = Room.all
     @quantity = Room.count
   end
 
@@ -21,6 +21,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def edit
