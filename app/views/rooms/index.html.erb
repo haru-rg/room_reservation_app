@@ -1,5 +1,13 @@
 <h1>Rooms#index 全ルーム</h1>
 
+<div>
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :keyword, value: @keyword %>
+    <%= f.submit "検索" %>
+    <% end %>
+</div>
+
+
 <p>検索結果： <%= @quantity %> 件</p>
 
 <table>

@@ -45,7 +45,7 @@ class RoomsController < ApplicationController
   def search
     @rooms = Room.search(params[:keyword])
     @keyword = params[:keyword]
-    render 'home/index'
+    render 'rooms/index'
   end
 
   def post

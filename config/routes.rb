@@ -4,7 +4,12 @@ Rails
   .draw do
     get 'rooms/index'
     devise_for :users
-    resources :users, only: [:show]
+    resources :users do
+      member do
+        get 'show'
+        get 'profile'
+      end
+    end
 
     get 'home/index'
 

@@ -1,4 +1,4 @@
-<h1>Users#show</h1>
+<h1>Users#show account情報</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 <h1>アカウント情報</h1>
 
@@ -6,11 +6,10 @@
 
 <p>パスワード : ＊＊＊＊＊＊＊＊＊＊</p>
 
-<h1>プロフィール</h1>
-<p>名前 : <%= @user.name %></p>
-<p>アイコン画像 :</p>
-<p>自己紹介 : <%= @user.introduction %></p>
 
-<%= link_to '編集', edit_user_registration_path %>
+<%= link_to 'アカウント情報編集', edit_user_registration_path %>
+<%= link_to 'プロフィール', profile_user_path %>
+
+
 
 
