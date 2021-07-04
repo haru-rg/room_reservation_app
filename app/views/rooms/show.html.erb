@@ -34,3 +34,19 @@
         </td>
     </tr>
 </table>
+
+<%= form_for [@room, @room.reservations.new] do |f| %>
+
+<%= f.hidden_field :room_id, value: @room.id %>
+<div>
+    <label>開始日</label>
+    <%= f.datetime_field  :start_date%>
+</div>
+<div>
+    <label>終了日</label>
+    <%= f.datetime_field :end_date%>
+</div>
+<%= f.submit "この日程で予約する" %>
+
+
+<% end %>

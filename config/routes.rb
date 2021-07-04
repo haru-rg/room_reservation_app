@@ -19,4 +19,8 @@ Rails
     resources :rooms do
       collection { get 'post' => 'rooms#post' }
     end
+
+    resources :rooms do
+      resources :reservations
+    end
   end

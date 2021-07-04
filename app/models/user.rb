@@ -7,5 +7,8 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 200 } #制限追記
 
   has_many :rooms, dependent: :destroy
+  has_many :reservations, dependent: :destroy
   mount_uploader :image, ImageUploader
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 end
