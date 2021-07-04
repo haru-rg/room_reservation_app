@@ -2,6 +2,8 @@
 <!--残アクション：user情報とreservation情報を連携させる-->
 <table>
     <tr>
+    <th>user_id</th>
+        <th>user_name</th>
         <th>room_id</th>
         <th>room_image</th>
         <th>room_name</th>
@@ -11,6 +13,12 @@
         <th>削除</th>
     </tr>
     <tr>
+     <td>
+            <%= @user.id %>
+        </td>
+         <td>
+            <%= @user.name %>
+        </td>
         <td>
             <%= @room.id %>
         </td>
@@ -45,6 +53,10 @@
 <div>
     <label>終了日</label>
     <%= f.datetime_field :end_date%>
+</div>
+<div>
+    <label>人数</label>
+    <%= f.number_field :guest_count %>
 </div>
 <%= f.submit "この日程で予約する" %>
 
