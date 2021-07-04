@@ -18,9 +18,13 @@
                     <%= link_to 'ホーム', home_index_path %>
                         <%= link_to 'ログアウト',
         destroy_user_session_path, method: :delete %>
+        <%= link_to 'ユーザー設定', user_path(current_user) %>
                             <%= link_to 'ユーザー編集', edit_user_registration_path %>
-                                <%= link_to '登録済みルーム一覧(index)',
+                                <%= link_to '全ルーム(index)',
         rooms_path %>
+        <%= link_to '登録済みルーム(rooms/post)',
+        post_rooms_path %>
+
                                     <%= link_to "ルーム新規登録", new_room_path %>
                                         <% else %>
                                             <%= link_to 'ホーム', home_index_path %>
