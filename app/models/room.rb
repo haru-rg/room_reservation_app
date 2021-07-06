@@ -5,17 +5,19 @@ class Room < ApplicationRecord
 
   def self.search(keyword, area)
     if keyword != nil
-      where(
-        [
-          'room_address like? OR room_name like? OR room_introduction like? OR room_price like?',
-          "%#{keyword}%",
-          "%#{keyword}%",
-          "%#{keyword}%",
-          "%#{keyword}%",
-        ],
+      return(
+        where(
+          [
+            'room_address like? OR room_name like? OR room_introduction like? OR room_price like?',
+            "%#{keyword}%",
+            "%#{keyword}%",
+            "%#{keyword}%",
+            "%#{keyword}%",
+          ],
+        )
       )
     else
-      where(['room_address like?', "%#{area}%"])
+      return where(['room_address like?', "%#{area}%"])
     end
   end
 

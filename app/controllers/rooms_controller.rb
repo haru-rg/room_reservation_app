@@ -47,13 +47,14 @@ class RoomsController < ApplicationController
   end
 
   def search
-    @keyword = params[:keyword] #search_fieldの:keywordから値を持ってきている
+    @keyword = params[:keyword] #search_fieldのk:eywordから値を持ってきている
     @area = params[:area] #search_fieldの:areaから値を持ってきている
     @rooms = Room.search(@keyword, @area) #room.rbのsearch関数に引数が２つある。room.rbでif文を使って出しわけている。
+    @quantity = @rooms.count
     render 'rooms/index'
   end
 
-  # def search1
+  # def searc1h
   #   @rooms = Room.search(params[:area])
   #   @area = params[:area]
   #   render 'rooms/index'
