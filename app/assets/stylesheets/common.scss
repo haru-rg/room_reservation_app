@@ -1,0 +1,70 @@
+header {
+  width: 100%;
+  height: 70px;
+  padding: 4px 30px;
+  background-color: #000000;
+}
+.header-inner {
+}
+.header-inner-left {
+  float: left;
+  display: flex;
+}
+
+.header-inner-right {
+  float: right;
+}
+
+input[type="search"] {
+  width: 180px;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+  border-radius: 2px;
+  padding-left: 30px;
+  margin: 15px 0px;
+}
+
+input[type="search"]::before {
+  content: "ここにいる";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.text-white {
+  color: white;
+  text-decoration: none;
+}
+.header-inner-right {
+  float: right;
+}
+
+.button-blue {
+  width: 100px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 1px;
+  color: #fff;
+  background-color: #4a90e2;
+  border-color: #4a90e2;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 5px;
+}
+.button-gray {
+  width: 100px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 1px;
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 5px;
+}
