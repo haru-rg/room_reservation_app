@@ -15,11 +15,15 @@ Rails
 
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
     root to: 'home#index'
-    get 'search' => 'rooms#search'
+
+    #get 'search' => 'rooms#search'
 
     #get 'search1' => 'rooms#search1'
     resources :rooms do
-      collection { get 'post' => 'rooms#post' }
+      collection do
+        get 'post' => 'rooms#post'
+        get 'search' => 'rooms#search'
+      end
     end
 
     resources :rooms do
