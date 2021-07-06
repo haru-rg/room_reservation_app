@@ -47,10 +47,17 @@ class RoomsController < ApplicationController
   end
 
   def search
-    @rooms = Room.search(params[:keyword])
-    @keyword = params[:keyword]
+    @keyword = params[:keyword] #search_fieldの:keywordから値を持ってきている
+    @area = params[:area] #search_fieldの:areaから値を持ってきている
+    @rooms = Room.search(@keyword, @area) #room.rbのsearch関数に引数が２つある。room.rbでif文を使って出しわけている。
     render 'rooms/index'
   end
+
+  # def search1
+  #   @rooms = Room.search(params[:area])
+  #   @area = params[:area]
+  #   render 'rooms/index'
+  # end
 
   def post
     @rooms = current_user.rooms.all ##現在のユーザーのもののみ表示

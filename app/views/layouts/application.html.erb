@@ -13,28 +13,35 @@
 <body>
     <header>
         <nav>
-             <% if user_signed_in? %>
+            <div class="header-inner" >
+                <div class="header-inner-left" >
+                    <a href=""><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="サイトのロゴ画像"></a>
+                    <%= form_with url: search_path, method: :get, local: true do |f| %>
+                        <%= f.search_field :keyword, value: @keyword %>
+                        <% f.submit "検索" %>
+                    <% end %>
+                        <%= form_with url: search_path, method: :get, local: true do |f| %>
+                        <%= f.search_field :area, value: @area %>
+                        <% f.submit "検索" %>
+                    <% end %>
+                </div>
+            <% if user_signed_in? %>
                 <%= "こんにちは#{current_user.name}さん" %>
-                    <%= link_to 'ホーム', home_index_path %>
-                        <%= link_to 'ログアウト',
-        destroy_user_session_path, method: :delete %>
-        <%= link_to 'ユーザー設定', user_path(current_user) %>
-                            <%= link_to 'ユーザー編集', edit_user_registration_path %>
-                                <%= link_to '全ルーム(index)',
-        rooms_path %>
-        <%= link_to '登録済みルーム(rooms/post)',
-        post_rooms_path %>
-
-                                    <%= link_to "ルーム新規登録", new_room_path %>
-                                        <% else %>
-                                            <%= link_to 'ホーム', home_index_path %>
-                                                <%= link_to 'サインアップ',
-        new_user_registration_path %>
-                                                    <%= link_to 'ログイン', new_user_session_path %>
-                                                        <% end %>
+                <%= link_to 'ホーム', home_index_path %>
+                <%= link_to 'ログアウト',destroy_user_session_path, method: :delete %>
+                <%= link_to 'ユーザー設定', user_path(current_user) %>
+                <%= link_to 'ユーザー編集', edit_user_registration_path %>
+                <%= link_to '全ルーム(index)',rooms_path %>
+                <%= link_to '登録済みルーム(rooms/post)',post_rooms_path %>
+                <%= link_to "ルーム新規登録", new_room_path %>
+            <% else %>
+                <%= link_to 'ホーム', home_index_path %>
+                <%= link_to 'サインアップ',new_user_registration_path %>
+                <%= link_to 'ログイン', new_user_session_path %>
+            <% end %>
+            </div>
         </nav>
     </header>
     <%= yield %>
 </body>
-
 </html>

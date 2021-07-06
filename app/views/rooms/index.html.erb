@@ -2,7 +2,7 @@
 
 <div>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword %>
+    <%= f.search_field :keyword, value: @keyword %>
     <%= f.submit "検索" %>
     <% end %>
 </div>
@@ -16,7 +16,7 @@
       <th>ルームid</th>
       <th>ルーム画像</th>
       <th>ルーム名</th>
-      <th>ルーム紹介</th>
+      <th>住所</th>
       <th>料金</th>
       <th>作成日</th>
       <th>登録したユーザID</th>
@@ -28,7 +28,7 @@
 
     <tr>
       <td><%= room.id %></td>
-      <td><%= link_to image_tag(room.room_image.to_s),room %></td>
+      <td><%= link_to image_tag(room.room_image.to_s), room %></td>
       <td><%= link_to room.room_name, room %></td>
       <td><%= room.room_address %></td>
       <td><%= room.room_price %></td>
