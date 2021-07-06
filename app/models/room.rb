@@ -4,7 +4,19 @@ class Room < ApplicationRecord
   has_many :reservations
 
   def self.search(keyword, area)
-    keyword != nil ? where(['room_address like? OR room_name like?', "%#{keyword}%", "%#{keyword}%"]) : where(['room_address like?', "%#{area}%"])
+    if keyword != nil
+      where(
+        [
+          'room_address like? OR room_name like? OR room_introduction like? OR room_price like?',
+          "%#{keyword}%",
+          "%#{keyword}%",
+          "%#{keyword}%",
+          "%#{keyword}%",
+        ],
+      )
+    else
+      where(['room_address like?', "%#{area}%"])
+    end
   end
 
   #   if keyword != nil
