@@ -12,15 +12,23 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    # サインアップ時にnameのストロングパラメータを追加
+    #サインアップ時にnameのストロングパラメータを追加
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
 
     # アカウント編集の時にnameとintroductionとimageのストロングパラメータを追加
     devise_parameter_sanitizer.permit(:account_update, keys: %i[name introduction image])
   end
 
-  # ログイン後のリダイレクト先
+  #ログイン後のリダイレクト先
+  # def after_sign_in_path_for(resource)
+  #   user_path(resource.id) #user/showに移動
+  # end
+
   def after_sign_in_path_for(resource)
-    user_path(resource.id) #user/showに移動
+    user_path(resource.id) # ログイン後に遷移するpathを設定
   end
+
+  # def after_sign_out_path_for(resource)
+  #   home_index_path # ログアウト後に遷移するpathを設定
+  # end
 end
