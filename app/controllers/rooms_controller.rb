@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[index show search]
+
   def index
     @rooms = Room.all
     @quantity = Room.count
@@ -21,8 +22,6 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-
-    #binding.pry
     @user = User.find(@room.user_id)
     @reservation = Reservation.new
   end
