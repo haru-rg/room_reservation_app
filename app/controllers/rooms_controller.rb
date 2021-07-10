@@ -64,4 +64,12 @@ class RoomsController < ApplicationController
     @quantity = current_user.rooms.count
     render 'rooms/post'
   end
+
+  def my_reservation
+    ##現在のユーザーのもののみ表示
+    @reservations = current_user.reservations.all
+    @quantity = current_user.reservations.count
+    @rooms = Room.all
+    render 'rooms/my_reservation'
+  end
 end

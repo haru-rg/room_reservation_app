@@ -9,8 +9,7 @@
         <th>room_name</th>
         <th>room_address</th>
         <th>room_price</th>
-        <th>編集</th>
-        <th>削除</th>
+
     </tr>
     <tr>
      <td>
@@ -34,12 +33,7 @@
         <td>
             <%= @room.room_price %>
         </td>
-        <td>
-            <%= link_to "編集", [:edit, @room] %>
-        </td>
-        <td>
-            <%= link_to "削除", @room, method: :delete, data: { confirm: "本当に削除しますか？" } %>
-        </td>
+
     </tr>
 </table>
 
@@ -58,7 +52,10 @@
     <label>人数</label>
     <%= f.number_field :guest_count %>
 </div>
+<% if user_signed_in? %>
 <%= f.submit "この日程で予約する" %>
-
+<% else %>
+<div class="button-blue"><%= link_to 'ログイン', new_user_session_path, class:"text-white" %></div>
+<% end %>
 
 <% end %>

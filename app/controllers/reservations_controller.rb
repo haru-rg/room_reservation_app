@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
 
     #binding.pry
     if @reservation.save
-      redirect_to room_reservations_path
+      redirect_to my_reservation_rooms_path
     else
       redirect_to rooms_index_path
     end

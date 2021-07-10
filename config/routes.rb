@@ -23,6 +23,7 @@ Rails
       collection do
         get 'post' => 'rooms#post'
         get 'search' => 'rooms#search'
+        get 'my_reservation' => 'rooms#my_reservation'
       end
     end
 
