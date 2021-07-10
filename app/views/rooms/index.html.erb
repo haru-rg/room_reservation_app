@@ -1,42 +1,21 @@
-<h1>Rooms#index 全ルーム</h1>
-
-<div>
-    <%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
-    <%= f.search_field :keyword, value: @keyword %>
-    <%= f.submit "検索" %>
-    <% end %>
-</div>
-
-
-<p>検索結果： <%= @quantity %> 件</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>ルームid</th>
-      <th>ルーム画像</th>
-      <th>ルーム名</th>
-      <th>住所</th>
-      <th>料金</th>
-      <th>作成日</th>
-      <th>登録したユーザID</th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class = "room_index">
+  <h4 class="search_count">検索結果： <%= @quantity %> 件</h4>
+  <div class="room_row">
     <% @rooms.each do |room| %>
 
-    <tr>
-      <td><%= room.id %></td>
-      <td><%= link_to image_tag(room.room_image.to_s), room %></td>
-      <td><%= link_to room.room_name, room %></td>
-      <td><%= room.room_address %></td>
-      <td><%= room.room_price %></td>
-      <td><%= room.created_at.to_s(:datetime_jp) %></td>
-      <td><%= room.user_id %></td>
-    </tr>
+      <div class="room-item">
+        <div class="room-image"><%= link_to image_tag(room.room_image.to_s, class:"room-img"), room %></div><br>
+        <%= link_to room do %>
+        <div class="room-intro">
+          <div class="room-name-font"><%= room.room_name %></div>
+          <div class="room-address-font"><%= room.room_address %></div>
+          <div class="room-address-font price-right">¥<%= room.room_price %></div>
+        </div>
+        <% end %>
+      </div>
+
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
 

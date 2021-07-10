@@ -57,7 +57,7 @@ table {
   border-radius: 0.25rem;
 }
 
-td::before {
+td .hissu::before {
   content: "必須";
   color: #fff;
   background-color: #ff0000a8;
