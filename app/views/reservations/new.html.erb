@@ -1,6 +1,7 @@
 <%= form_with method: :post, url:reservations_path do |f| %>
   <%= f.hidden_field :room_id, value: @room_id %>
   <%= f.hidden_field :user_id, value: @user_id %>
+  <%= f.hidden_field :room_price, value: @room_price %>
   <div>
     <label>開始日</label>
     <%= f.datetime_field :start_date, value: @start_date, readonly: true %>
@@ -12,6 +13,10 @@
   <div>
     <label>人数</label>
     <%= f.number_field :guest_count, value: @guest_count, readonly: true %>
+  </div>
+  <div>
+    <label>金額</label>
+    <%= f.number_field :sum_price, value: @sum_price, readonly: true %>
   </div>
   <%= f.submit '予約を確定' %>
   <%= link_to 'ルーム詳細に戻る', room_path(@room_id) %>

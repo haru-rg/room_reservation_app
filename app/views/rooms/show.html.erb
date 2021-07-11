@@ -38,6 +38,7 @@
 <%= form_with method: :get, url:new_reservation_path do |f| %>
   <%= f.hidden_field :room_id, value: @room.id %>
   <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.hidden_field :room_price, value: @room.room_price %>
   <div>
     <label>開始日</label>
     <%= f.datetime_field :start_date %>

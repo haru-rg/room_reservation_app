@@ -11,6 +11,8 @@ class ReservationsController < ApplicationController
     @guest_count = params[:guest_count]
     @room_id = params[:room_id]
     @user_id = params[:user_id]
+    @room_price = params[:room_price]
+    @sum_price = @room_price.to_i * @guest_count.to_i
   end
 
   def create
