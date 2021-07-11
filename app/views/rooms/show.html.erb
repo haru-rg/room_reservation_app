@@ -35,7 +35,7 @@
   </tr>
 </table>
 
-<%= form_for [@reservation] do |f| %>
+<%= form_for @reservation , method: :get, url:new_reservation_path do |f| %>
   <%= f.hidden_field :room_id, value: @room.id %>
   <div>
     <label>開始日</label>
@@ -51,6 +51,7 @@
   </div>
   <% if user_signed_in? %>
     <%= f.submit 'この日程で予約する' %>
+    <!--①予約ボタンを押した後に、reservation newにデータを入れる(reservationのcreateに飛ばせない)-->
   <% else %>
     <div class="button-blue"><%= link_to 'ログイン', new_user_session_path, class: 'text-white' %></div>
   <% end %>

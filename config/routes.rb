@@ -28,10 +28,6 @@ Rails
 
     resources :rooms
     resources :reservations do
-      collection do
-        post 'reservations/confirm' # 確認画面
-        post 'reservations/back' # 確認画面から「入力画面に戻る」をクリックしたとき
-        post 'reservations/complete'
-      end
+      collection { post 'reservations/show' }
     end
   end

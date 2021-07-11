@@ -20,8 +20,6 @@ class ReservationsController < ApplicationController
       redirect_to rooms_index_path
     end
   end
-  def confirm
-    @reservations = current_user.reservations.all
-    @rooms = Room.all
-  end
+
+  def show; end
 end
