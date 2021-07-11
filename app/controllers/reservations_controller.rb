@@ -17,11 +17,15 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(params.permit(:start_date, :end_date, :guest_count, :room_id, :user_id))
 
     if @reservation.save
-      redirect_to reservations_path
+      #reservationsのテーブルにデータが入る
+      redirect_to reservation_path(@reservation.id)
     else
       redirect_to rooms_index_path
     end
   end
 
-  def show; end
+  def show
+    @reservation = Reservation.find(params[:id])
+    @room = Room.find(@reservation.room_id)
+  end
 end

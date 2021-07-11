@@ -27,7 +27,5 @@ Rails
     end
 
     resources :rooms
-    resources :reservations do
-      collection { post 'reservations/show' }
-    end
+    resources :reservations
   end
