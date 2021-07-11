@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
   def index
     @reservations = current_user.reservations.all
     @rooms = Room.all
+    @quantity = current_user.reservations.count
   end
   def new
     @reservation = current_user.reservations.new
@@ -14,9 +15,13 @@ class ReservationsController < ApplicationController
 
     #binding.pry
     if @reservation.save
-      redirect_to my_reservation_rooms_path
+      redirect_to reservations_path
     else
       redirect_to rooms_index_path
     end
+  end
+  def confirm
+    @reservations = current_user.reservations.all
+    @rooms = Room.all
   end
 end

@@ -23,11 +23,15 @@ Rails
       collection do
         get 'post' => 'rooms#post'
         get 'search' => 'rooms#search'
-        get 'my_reservation' => 'rooms#my_reservation'
       end
     end
 
-    resources :rooms do
-      resources :reservations
+    resources :rooms
+    resources :reservations do
+      collection do
+        post 'reservations/confirm' # 確認画面
+        post 'reservations/back' # 確認画面から「入力画面に戻る」をクリックしたとき
+        post 'reservations/complete'
+      end
     end
   end

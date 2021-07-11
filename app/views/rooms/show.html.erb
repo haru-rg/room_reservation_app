@@ -1,61 +1,57 @@
 <p>show ここに予約機能をつける</p>
 <!--残アクション：user情報とreservation情報を連携させる-->
 <table>
-    <tr>
+  <tr>
     <th>user_id</th>
-        <th>user_name</th>
-        <th>room_id</th>
-        <th>room_image</th>
-        <th>room_name</th>
-        <th>room_address</th>
-        <th>room_price</th>
-
-    </tr>
-    <tr>
-     <td>
-            <%= @user.id %>
-        </td>
-         <td>
-            <%= @user.name %>
-        </td>
-        <td>
-            <%= @room.id %>
-        </td>
-        <td>
-            <%= image_tag @room.room_image.to_s %>
-        </td>
-        <td>
-            <%= @room.room_name %>
-        </td>
-        <td>
-            <%= @room.room_address %>
-        </td>
-        <td>
-            <%= @room.room_price %>
-        </td>
-
-    </tr>
+    <th>user_name</th>
+    <th>room_id</th>
+    <th>room_image</th>
+    <th>room_name</th>
+    <th>room_address</th>
+    <th>room_price</th>
+  </tr>
+  <tr>
+    <td>
+      <%= @user.id %>
+    </td>
+    <td>
+      <%= @user.name %>
+    </td>
+    <td>
+      <%= @room.id %>
+    </td>
+    <td>
+      <%= image_tag @room.room_image.to_s %>
+    </td>
+    <td>
+      <%= @room.room_name %>
+    </td>
+    <td>
+      <%= @room.room_address %>
+    </td>
+    <td>
+      <%= @room.room_price %>
+    </td>
+  </tr>
 </table>
 
-<%= form_for [@room, @room.reservations.new] do |f| %>
-
-<%= f.hidden_field :room_id, value: @room.id %>
-<div>
+<%= form_for [@reservation] do |f| %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <div>
     <label>開始日</label>
-    <%= f.datetime_field  :start_date%>
-</div>
-<div>
+    <%= f.datetime_field :start_date %>
+  </div>
+  <div>
     <label>終了日</label>
-    <%= f.datetime_field :end_date%>
-</div>
-<div>
+    <%= f.datetime_field :end_date %>
+  </div>
+  <div>
     <label>人数</label>
     <%= f.number_field :guest_count %>
-</div>
-<% if user_signed_in? %>
-<%= f.submit "この日程で予約する" %>
-<% else %>
-<div class="button-blue"><%= link_to 'ログイン', new_user_session_path, class:"text-white" %></div>
-<% end %>
-
+  </div>
+  <% if user_signed_in? %>
+    <%= f.submit 'この日程で予約する' %>
+  <% else %>
+    <div class="button-blue"><%= link_to 'ログイン', new_user_session_path, class: 'text-white' %></div>
+  <% end %>
 <% end %>
