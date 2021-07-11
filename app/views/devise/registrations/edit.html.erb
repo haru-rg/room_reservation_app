@@ -9,7 +9,7 @@
         <%= f.label :name %><br />
         <%= f.text_field :name, autofocus: true, class: 'input_form', placeholder: 'メールアドレスを入力してください' %><br />
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'input_form' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'input_form' %><br />
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>
             Currently waiting confirmation for:
