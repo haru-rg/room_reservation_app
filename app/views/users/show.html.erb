@@ -1,15 +1,23 @@
-<h1>Users#show account情報</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class = "myaccount_index_nav">
+<div class="room-blue-center">
+<%= link_to 'アカウント', user_path(current_user),class:"room-blue" %>
+</div>
+<div class="room-blue-center">
+<%= link_to 'プロフィール', profile_user_path,class:"room-blue" %>
+</div>
+</div>
+<div class = "myaccount_index">
+    <div class = "myaccount_index_inner">
 <h1>アカウント情報</h1>
-
-<p>メールアドレス : <%= @user.email %></p>
-
-<p>パスワード : ＊＊＊＊＊＊＊＊＊＊</p>
-
-
-<%= link_to 'アカウント情報編集', edit_user_registration_path %>
-<%= link_to 'プロフィール', profile_user_path %>
-
-
-
-
+  <table>
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <td>パスワード</td>
+      <td>＊＊＊＊＊＊＊＊＊＊</td>
+    </tr>
+  </table>
+<%= link_to '編集', edit_user_registration_path, class:"text-white button-blue excep "%>
+</div>
