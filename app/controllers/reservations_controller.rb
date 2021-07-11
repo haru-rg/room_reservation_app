@@ -27,5 +27,6 @@ class ReservationsController < ApplicationController
   def show
     @reservation = Reservation.find(params[:id])
     @room = Room.find(@reservation.room_id)
+    @sum_price = @room.room_price * @reservation.guest_count
   end
 end
