@@ -35,7 +35,7 @@
   </tr>
 </table>
 
-<%= form_for @reservation , method: :get, url:new_reservation_path do |f| %>
+<%= form_with method: :get, url:new_reservation_path do |f| %>
   <%= f.hidden_field :room_id, value: @room.id %>
   <div>
     <label>開始日</label>

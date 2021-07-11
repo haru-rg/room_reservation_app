@@ -6,7 +6,9 @@ class ReservationsController < ApplicationController
     @quantity = current_user.reservations.count
   end
   def new
-    @reservation = current_user.reservations.new
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
+    @guest_count = params[:guest_count]
   end
 
   def create
