@@ -1,59 +1,59 @@
+<div class = "myaccount_index_nav">
+<div class="room-blue-center">
+<p>基本情報</p>
+</div>
+</div>
+<div class = "myaccount_index">
+    <div class = "myaccount_index_inner">
 <h3>ルーム情報登録</h3>
 
 <%= form_for @room do |f| %>
     <table>
         <tr>
-            <th>
-                <%= f.label :room_name ,"ルーム名" %>
-            </th>
             <td>
-                <%= f.text_field :room_name %>
+                <div class="hissu2"><%= f.label :room_name ,"ルーム名" %></div>
+            </td>
+            <td>
+                <%= f.text_field :room_name, class:"field" %>
             </td>
         </tr>
 
         <tr>
-            <th>
-                <%= f.label :room_introduction ,"ルーム紹介" %>
-            </th>
             <td>
-                <%= f.text_field :room_introduction %>
+                <div class="hissu2"><%= f.label :room_introduction ,"ルーム紹介" %></div>
+            </td>
+            <td>
+                <%= f.text_area :room_introduction, class:"field" %>
             </td>
         </tr>
 
         <tr>
-            <th>
-                <%= f.label :room_price ,"料金" %>
-            </th>
             <td>
-                <%= f.number_field :room_price %>
+                <div class="hissu2"><%= f.label :room_price ,"料金" %></div>
+            </td>
+            <td>
+                <%= f.number_field :room_price, class:"field" %>
             </td>
         </tr>
 
         <tr>
-            <th>
-                <%= f.label :room_address ,"住所" %>
-            </th>
             <td>
-                <%= f.text_area :room_address %>
+                <div class="hissu2"><%= f.label :room_address ,"住所" %></div>
+            </td>
+            <td>
+                <%= f.text_field :room_address, class:"field" %>
             </td>
         </tr>
         <tr>
-            <th>
-                <%= f.label :room_image ,"ルーム画像" %>
-            </th>
             <td>
-                <%= f.file_field :room_image %>
+                <div class="hissu2"><%= f.label :room_image ,"ルーム画像" %></div>
+            </td>
+            <td>
+                <%= f.file_field :room_image, class:"field-img"%>
             </td>
         </tr>
     </table>
-    <div>
-        <ul>
-            <li>
-                <%= f.submit "登録完了する"%>
-            </li>
-            <li>
-                <%= link_to "登録済みルーム一覧に戻る", :rooms %>
-            </li>
-        </ul>
-    </div>
+        <%= f.submit "登録",  class:"text-white button-blue-room" %>
     <% end %>
+    </div>
+</div>
