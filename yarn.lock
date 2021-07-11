@@ -893,7 +893,7 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@prettier/plugin-ruby@^1.6.1":
+"@prettier/plugin-ruby@^1.5.5":
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/@prettier/plugin-ruby/-/plugin-ruby-1.6.1.tgz#14489985513a72e052b57c1cf9beae288880faa8"
   integrity sha512-PGDCATgVTQz0s/NB9nStiXVCIr+hG/XnKeAO/kguaHrNf8VwCpP5Ul+/KQao0z0QFBy2PDY8kWptfDQCa7WMXg==
@@ -5359,7 +5359,24 @@ prepend-http@^1.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
 
-prettier@>=1.10, prettier@^2.3.2:
+prettier-html-templates@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/prettier-html-templates/-/prettier-html-templates-0.1.0.tgz#dfa12bd71c032e3b796e8c645210c5614403575d"
+  integrity sha512-KdLveYzO2kJLiwUAebd5UFeKP8h3OqFhOiLbkgeIuS1WNoCRTyxW4KuyGfbh3F+Rp/2A6mipRxCq2zPi+//pmg==
+
+prettier-plugin-erb@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-erb/-/prettier-plugin-erb-0.2.0.tgz#d40b4b58e6ae8705017ab4aedb1614386e371277"
+  integrity sha512-lh+AFhR6LOll4fxWG3viH0q65hijqRdsOL2BbmcBSihPoUjojwm/4UG+AOadpecIgSn5Ec2biruJ4PWrMNeOfg==
+  dependencies:
+    prettier-html-templates "^0.1.0"
+
+prettier@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.0.tgz#8a03c7777883b29b37fb2c4348c66a78e980418b"
+  integrity sha512-yYerpkvseM4iKD/BXLYUkQV5aKt4tQPqaGW6EsZjzyu0r7sVZZNPJW4Y8MyKmicp6t42XUPcBVA+H6sB3gqndw==
+
+prettier@>=1.10:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.2.tgz#ef280a05ec253712e486233db5c6f23441e7342d"
   integrity sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==

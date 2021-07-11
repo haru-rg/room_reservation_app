@@ -1,55 +1,52 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>RoomReservationApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav>
-            <div>
-                <div class="header-inner-left" >
-                    <a href="/home/index"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="サイトのロゴ画像"></a>
-                    <%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
-                        <%= f.search_field :keyword, value: @keyword, placeholder: "キーワード" %>
-                        <% f.submit "検索" %>
-                    <% end %>
-                    <%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
-                        <%= f.search_field :area, value: @area, placeholder: "エリア"%>
-                        <% f.submit "検索" %>
-                    <% end %>
-                </div>
-                    <% if user_signed_in? %>
-                    <div class="header-inner-right" >
-                        <%= "こんにちは#{current_user.name}さん" %>
-                        <%= link_to 'ホーム', home_index_path %>
-                        <%= link_to 'ログアウト',destroy_user_session_path, method: :delete %>
-                        <%= link_to 'ユーザー設定', user_path(current_user) %>
-                        <%= link_to '全ルーム(index)',rooms_path %>
-                        <%= link_to '登録済みルーム(rooms/post)',post_rooms_path %>
-                        <%= link_to "ルーム新規登録", new_room_path %>
-                        <%= link_to '予約済みルーム(rooms/my-re)',my_reservation_rooms_path %>
-
-
-                    </div>
-                     <% else %>
-                    <div class="header-inner-right" >
-                         <div class="button-blue"><%= link_to 'ログイン', new_user_session_path, class:"text-white" %></div>
-                         <div class="button-gray"><%= link_to '登録する', new_user_registration_path, class:"text-white" %></div>
-                    </div>
-                    <% end %>
+      <nav>
+        <div>
+          <div class="header-inner-left">
+            <a href="/home/index"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="サイトのロゴ画像" /></a>
+            <%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
+              <%= f.search_field :keyword, value: @keyword, placeholder: 'キーワード' %>
+              <% f.submit '検索' %>
+            <% end %>
+            <%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
+              <%= f.search_field :area, value: @area, placeholder: 'エリア' %>
+              <% f.submit '検索' %>
+            <% end %>
+          </div>
+          <% if user_signed_in? %>
+            <div class="header-inner-right">
+              <%= "こんにちは#{current_user.name}さん" %>
+              <%= link_to 'ホーム', home_index_path %>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+              <%= link_to 'ユーザー設定', user_path(current_user) %>
+              <%= link_to '全ルーム(index)', rooms_path %>
+              <%= link_to '登録済みルーム(rooms/post)', post_rooms_path %>
+              <%= link_to 'ルーム新規登録', new_room_path %>
+              <%= link_to '予約済みルーム(rooms/my-re)', my_reservation_rooms_path %>
             </div>
-        </nav>
+          <% else %>
+            <div class="header-inner-right">
+              <div class="button-blue"><%= link_to 'ログイン', new_user_session_path, class: 'text-white' %></div>
+              <div class="button-gray"><%= link_to '登録する', new_user_registration_path, class: 'text-white' %></div>
+            </div>
+          <% end %>
+        </div>
+      </nav>
     </header>
     <%= yield %>
     <footer>
       <p>© 2020 POTEPAN.INC.</p>
     </footer>
-</body>
+  </body>
 </html>
