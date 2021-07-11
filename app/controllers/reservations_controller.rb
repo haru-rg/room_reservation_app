@@ -9,13 +9,13 @@ class ReservationsController < ApplicationController
     @start_date = params[:start_date]
     @end_date = params[:end_date]
     @guest_count = params[:guest_count]
+    @room_id = params[:room_id]
+    @user_id = params[:user_id]
   end
 
   def create
-    @reservation = current_user.reservations.new(params.require(:reservation).permit(:start_date, :end_date, :room_id))
-    @reservation.user_id = current_user.id
+    @reservation = Reservation.new(params.permit(:start_date, :end_date, :guest_count, :room_id, :user_id))
 
-    #binding.pry
     if @reservation.save
       redirect_to reservations_path
     else
