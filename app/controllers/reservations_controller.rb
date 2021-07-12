@@ -32,6 +32,9 @@ class ReservationsController < ApplicationController
   def show
     @reservation = Reservation.find(params[:id])
     @room = Room.find(@reservation.room_id)
-    @sum_price = @room.room_price * @reservation.guest_count
+    @sum_date = ((@reservation.end_date.to_time - @reservation.start_date.to_time) / 3600 / 24).to_i
+
+    #binding.pry
+    @sum_price = @room.room_price * @reservation.guest_count * @sum_date.to_i
   end
 end

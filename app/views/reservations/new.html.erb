@@ -2,6 +2,10 @@
   <%= f.hidden_field :room_id, value: @room_id %>
   <%= f.hidden_field :user_id, value: @user_id %>
   <%= f.hidden_field :room_price, value: @room_price %>
+  <h1>予約内容確認</h1>
+  <div>
+    <p>¥ <%= @room_price %> / 日</p>
+  </div>
   <div>
     <label>開始日</label>
     <%= f.datetime_field :start_date, value: @start_date, readonly: true %>
@@ -10,20 +14,21 @@
     <label>終了日</label>
     <%= f.datetime_field :end_date, value: @end_date, readonly: true %>
   </div>
+
   <div>
-    <label>人数</label>
-    <%= f.number_field :guest_count, value: @guest_count, readonly: true %>
+    <p>使用日数： <%= @sum_date %>日</p>
+    <%= f.hidden_field :sum_date, value: @sum_date, readonly: true %>
   </div>
   <div>
-    <label>金額</label>
+    <p>人数：<%= @guest_count %>人</p>
+    <%= f.hidden_field :guest_count, value: @guest_count, readonly: true %>
+  </div>
+  <div>
+    <label>合計金額</label>
     <%= f.number_field :sum_price, value: @sum_price, readonly: true %>
   </div>
 
-  <div>
-    <label>金額</label>
-    <%= f.number_field :sum_date, value: @sum_date, readonly: true %>
-  </div>
-
+  <p>上記内容でよろしければ「予約を確定」を押してください</p>
   <%= f.submit '予約を確定' %>
   <%= link_to 'ルーム詳細に戻る', room_path(@room_id) %>
 <% end %>
