@@ -1,41 +1,52 @@
 <div class="room-show-all">
-  <div class="room-show">
-    <div><%= image_tag @room.room_image.to_s, class: 'room-show-img' %></div>
-    <div><% @user.name %></div>
-    <div class="overflow">
-      <div class="room-user-img-left"><%= image_tag @user.image.to_s %></div>
-      <div class="room-room-name-left">
-        <div><%= @room.room_name %></div>
-        <div><%= @room.room_address %></div>
+  <div class="room-show-all-inner">
+    <div class="room-show">
+      <div><%= image_tag @room.room_image.to_s, class: 'room-show-img' %></div>
+      <div><% @user.name %></div>
+      <div class="overflow">
+        <div class="room-user-img-left"><%= image_tag @user.image.to_s %></div>
+        <div class="room-room-name-left">
+          <div class="text-bold"><%= @room.room_name %></div>
+          <div><%= @room.room_address %></div>
+        </div>
+      </div>
+      <table>
+        <tr>
+          <td class="topbtm-border">
+            <div class="room-room-intro-center text-left"><%= @room.room_introduction %></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="room-show-right">
+      <div class="room-show-right-inner">
+        <!--user情報とreservation情報を連携させる-->
+        <%= form_with method: :get, url:new_reservation_path do |f| %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.hidden_field :user_id, value: @user.id %>
+          <%= f.hidden_field :room_price, value: @room.room_price %>
+          <div class="text-bold">¥ <%= @room.room_price %> / 日</div>
+          <div>
+            <label>開始日</label><br />
+            <%= f.datetime_field :start_date, class: 'field' %>
+          </div>
+          <div>
+            <label>終了日</label><br />
+            <%= f.datetime_field :end_date, class: 'field' %>
+          </div>
+          <div>
+            <label>人数</label><br />
+            <%= f.number_field :guest_count, class: 'field' %>
+          </div>
+          <% if user_signed_in? %>
+            <%= f.submit '予約する', class: 'search-button-blue' %>
+            <!--①予約ボタンを押した後に、reservation newにデータを入れる(reservationのcreateに飛ばせない)-->
+          <% else %>
+            <div class="search-button-blue"><%= link_to 'ログイン', new_user_session_path, class: 'text-white' %></div>
+          <% end %>
+        <% end %>
       </div>
     </div>
-    <div class="room-room-intro-center"><%= @room.room_introduction %></div>
-  </div>
-
-  <div class="room-show-reservation">
-    <!--user情報とreservation情報を連携させる-->
-    <%= form_with method: :get, url:new_reservation_path do |f| %>
-      <%= f.hidden_field :room_id, value: @room.id %>
-      <%= f.hidden_field :user_id, value: @user.id %>
-      <%= f.hidden_field :room_price, value: @room.room_price %>
-      <div>
-        <label>開始日</label>
-        <%= f.datetime_field :start_date %>
-      </div>
-      <div>
-        <label>終了日</label>
-        <%= f.datetime_field :end_date %>
-      </div>
-      <div>
-        <label>人数</label>
-        <%= f.number_field :guest_count %>
-      </div>
-      <% if user_signed_in? %>
-        <%= f.submit 'この日程で予約する' %>
-        <!--①予約ボタンを押した後に、reservation newにデータを入れる(reservationのcreateに飛ばせない)-->
-      <% else %>
-        <div class="button-blue"><%= link_to 'ログイン', new_user_session_path, class: 'text-white' %></div>
-      <% end %>
-    <% end %>
   </div>
 </div>
