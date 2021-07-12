@@ -182,6 +182,14 @@ td .hissu2::after {
   object-fit: cover;
 }
 
+.user-image-maru {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 20px;
+}
+
 .room-user-img-left {
   float: left;
 }

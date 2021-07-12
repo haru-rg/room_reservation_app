@@ -4,7 +4,7 @@
       <div><%= image_tag @room.room_image.to_s, class: 'room-show-img' %></div>
       <div><% @user.name %></div>
       <div class="overflow">
-        <div class="room-user-img-left"><%= image_tag @user.image.to_s %></div>
+        <div class="room-user-img-left"><%= image_tag @user.image.to_s, class: 'user-image-maru' %></div>
         <div class="room-room-name-left">
           <div class="text-bold"><%= @room.room_name %></div>
           <div><%= @room.room_address %></div>
