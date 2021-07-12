@@ -1,6 +1,7 @@
 <div class="account-new">
   <div class="account-new-area">
     <h1>予約内容確認</h1>
+
     <div class="account-new-area-input text-left">
       <%= form_with method: :post, url:reservations_path do |f| %>
         <%= f.hidden_field :room_id, value: @room_id %>

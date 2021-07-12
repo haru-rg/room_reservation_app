@@ -20,12 +20,14 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(params.permit(:start_date, :end_date, :guest_count, :room_id, :user_id))
-
+    @room_id = @reservation.room_id
     if @reservation.save
+      flash[:notice] = '予約が完了しました'
+
       #reservationsのテーブルにデータが入る
       redirect_to reservation_path(@reservation.id)
     else
-      redirect_to rooms_index_path
+      redirect_to room_path(@reservation.room_id)
     end
   end
 

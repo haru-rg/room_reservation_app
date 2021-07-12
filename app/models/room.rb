@@ -20,10 +20,4 @@ class Room < ApplicationRecord
       return where(['room_address like?', "%#{area}%"])
     end
   end
-
-  #   if keyword != nil
-  #     where(['room_address like? OR room_name like?', "%#{keyword}%", "%#{keyword}%"])
-  #   else
-  #     where(['room_address like?' , "%#{area}%"])
-  #   end
 end
