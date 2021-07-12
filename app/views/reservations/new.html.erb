@@ -18,6 +18,12 @@
     <label>金額</label>
     <%= f.number_field :sum_price, value: @sum_price, readonly: true %>
   </div>
+
+  <div>
+    <label>金額</label>
+    <%= f.number_field :sum_date, value: @sum_date, readonly: true %>
+  </div>
+
   <%= f.submit '予約を確定' %>
   <%= link_to 'ルーム詳細に戻る', room_path(@room_id) %>
 <% end %>

@@ -12,7 +12,10 @@ class ReservationsController < ApplicationController
     @room_id = params[:room_id]
     @user_id = params[:user_id]
     @room_price = params[:room_price]
-    @sum_price = @room_price.to_i * @guest_count.to_i
+    @sum_date = ((@end_date.to_time - @start_date.to_time) / 3600 / 24).to_i
+    @sum_price = @room_price.to_i * @guest_count.to_i * @sum_date.to_i
+
+    #binding.pry
   end
 
   def create
