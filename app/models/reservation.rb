@@ -2,8 +2,9 @@ class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
-  validates :start_date, presence: true
+  validates :start_date, presence: true, presence: { message: '今日以降の日程に設定してください' }
   validates :end_date, presence: true
+  validates :guest_count, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 
   validate :start_finish_check
   validate :start_check
