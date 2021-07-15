@@ -1,6 +1,6 @@
-require_relative "boot"
+require_relative 'boot'
 
-require "rails/all"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -19,5 +19,6 @@ module RoomReservationApp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.time_zone = 'Tokyo' #日本時間を表示するために追加
+    config.i18n.default_locale = :ja #日本語設定
   end
 end

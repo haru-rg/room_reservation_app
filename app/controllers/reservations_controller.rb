@@ -8,6 +8,8 @@ class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new(params.permit(:start_date, :end_date, :guest_count, :room_id, :user_id))
     if @reservation.valid?
+      #rooms/showで入力した内容にバリデーションをかける。
+      #reservation/newを表示する前にバリデーションをかけてリダイレクトする。
       @start_date = params[:start_date]
       @end_date = params[:end_date]
       @guest_count = params[:guest_count]
@@ -22,9 +24,8 @@ class ReservationsController < ApplicationController
       @room = Room.find(@room_id)
       @user = User.find(@room.user_id)
       render 'rooms/show', flash: { error: @reservation.errors.full_messages }
+      #エラーメッセージをリダイレクト先に送る
     end
-
-    #binding.pry
   end
 
   def create
