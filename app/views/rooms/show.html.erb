@@ -22,9 +22,6 @@
     <div class="room-show-right">
       <div class="room-show-right-inner">
         <!--user情報とreservation情報を連携させる-->
-        <% if flash.notice %>
-          <p class="notice"><%= flash.notice %></p>
-        <% end %>
 
         <%= render 'shared/error', obj: @reservation %>
         <%= form_with method: :get, url:new_reservation_path do |f| %>

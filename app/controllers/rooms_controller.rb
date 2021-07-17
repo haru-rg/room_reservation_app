@@ -48,12 +48,20 @@ class RoomsController < ApplicationController
   end
 
   def search
-    @user = User.find(current_user.id)
-    @keyword = params[:keyword] #search_fieldのk:eywordから値を持ってきている
-    @area = params[:area] #search_fieldの:areaから値を持ってきている
-    @rooms = Room.search(@keyword, @area) #room.rbのsearch関数に引数が２つある。room.rbでif文を使って出しわけている。
-    @quantity = @rooms.count
-    render 'rooms/index'
+    if user_signed_in?
+      @user = User.find(current_user.id)
+      @keyword = params[:keyword] #search_fieldのk:eywordから値を持ってきている
+      @area = params[:area] #search_fieldの:areaから値を持ってきている
+      @rooms = Room.search(@keyword, @area) #room.rbのsearch関数に引数が２つある。room.rbでif文を使って出しわけている。
+      @quantity = @rooms.count
+      render 'rooms/index'
+    else
+      @keyword = params[:keyword] #search_fieldのk:eywordから値を持ってきている
+      @area = params[:area] #search_fieldの:areaから値を持ってきている
+      @rooms = Room.search(@keyword, @area) #room.rbのsearch関数に引数が２つある。room.rbでif文を使って出しわけている。
+      @quantity = @rooms.count
+      render 'rooms/index'
+    end
   end
 
   # def searc1h

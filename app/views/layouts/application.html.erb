@@ -26,16 +26,19 @@
           </div>
           <% if user_signed_in? %>
             <div class="header-inner-right">
-              <label for="menu"><%= image_tag @user.image.to_s, class: 'user-img' %></label>
-              <input type="checkbox" id="menu" />
-              <ul class="dropdown">
-                <li class="dropitem"><%= link_to 'ホーム', home_index_path %></li>
-                <li class="dropitem"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-                <li class="dropitem"><%= link_to 'ユーザー設定', user_path(current_user) %></li>
-                <li class="dropitem"><%= link_to '全ルーム(index)', rooms_path %></li>
-                <li class="dropitem"><%= link_to '登録済みルーム(rooms/post)', post_rooms_path %></li>
-                <li class="dropitem"><%= link_to 'ルーム新規登録', new_room_path %></li>
-              </ul>
+              <div class="name-white"><%= @user.name %></div>
+              <div class="menu-navi">
+                <label for="menu"><%= image_tag @user.image.to_s, class: 'user-img' %></label>
+                <input type="checkbox" id="menu" />
+                <ul class="dropdown">
+                  <li class="dropitem"><%= link_to 'ホーム', home_index_path %></li>
+                  <li class="dropitem"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                  <li class="dropitem"><%= link_to 'ユーザー設定', user_path(current_user) %></li>
+                  <li class="dropitem"><%= link_to '全ルーム(index)', rooms_path %></li>
+                  <li class="dropitem"><%= link_to '登録済みルーム(rooms/post)', post_rooms_path %></li>
+                  <li class="dropitem"><%= link_to 'ルーム新規登録', new_room_path %></li>
+                </ul>
+              </div>
             </div>
           <% else %>
             <div class="header-inner-right">
