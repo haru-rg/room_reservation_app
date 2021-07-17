@@ -4,9 +4,11 @@ class RoomsController < ApplicationController
   def index
     @rooms = Room.all
     @quantity = Room.count
+    @user = User.find(current_user.id)
   end
 
   def new
+    @user = User.find(current_user.id)
     @room = Room.new
   end
 
@@ -46,6 +48,7 @@ class RoomsController < ApplicationController
   end
 
   def search
+    @user = User.find(current_user.id)
     @keyword = params[:keyword] #search_fieldのk:eywordから値を持ってきている
     @area = params[:area] #search_fieldの:areaから値を持ってきている
     @rooms = Room.search(@keyword, @area) #room.rbのsearch関数に引数が２つある。room.rbでif文を使って出しわけている。
@@ -60,6 +63,7 @@ class RoomsController < ApplicationController
   # end
 
   def post
+    @user = User.find(current_user.id)
     @rooms = current_user.rooms.all ##現在のユーザーのもののみ表示
     @quantity = current_user.rooms.count
     render 'rooms/post'

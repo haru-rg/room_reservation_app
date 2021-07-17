@@ -1,24 +1,26 @@
-<div class="myaccount_index_nav">
-  <div class="room-blue-center">
-    <%= link_to 'アカウント', user_path(current_user), class: 'room-blue' %>
+<div class="myaccount">
+  <div class="myaccount_index_nav">
+    <div class="room-blue-center">
+      <%= link_to 'アカウント', user_path(current_user), class: 'room-blue' %>
+    </div>
+    <div class="room-blue-center">
+      <%= link_to 'プロフィール', profile_user_path, class: 'room-blue' %>
+    </div>
   </div>
-  <div class="room-blue-center">
-    <%= link_to 'プロフィール', profile_user_path, class: 'room-blue' %>
-  </div>
-</div>
-<div class="myaccount_index">
-  <div class="myaccount_index_inner">
-    <h1>アカウント情報</h1>
-    <table>
-      <tr>
-        <td>メールアドレス</td>
-        <td><%= @user.email %></td>
-      </tr>
-      <tr>
-        <td>パスワード</td>
-        <td>＊＊＊＊＊＊＊＊＊＊</td>
-      </tr>
-    </table>
-    <%= link_to '編集', edit_user_registration_path, class: 'text-white button-blue excep ' %>
+  <div class="myaccount_index">
+    <div class="myaccount_index_inner">
+      <h1>アカウント情報</h1>
+      <table>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <td>パスワード</td>
+          <td>＊＊＊＊＊＊＊＊＊＊</td>
+        </tr>
+      </table>
+      <%= link_to '編集', edit_user_registration_path, class: 'text-white button-blue excep ' %>
+    </div>
   </div>
 </div>

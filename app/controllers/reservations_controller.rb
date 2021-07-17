@@ -7,6 +7,9 @@ class ReservationsController < ApplicationController
   end
   def new
     @reservation = Reservation.new(params.permit(:start_date, :end_date, :guest_count, :room_id, :user_id))
+    @room_id = params[:room_id]
+    @room = Room.find(@room_id)
+    @user = User.find(@room.user_id)
     if @reservation.valid?
       #rooms/showで入力した内容にバリデーションをかける。
       #reservation/newを表示する前にバリデーションをかけてリダイレクトする。
@@ -48,6 +51,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     @room = Room.find(@reservation.room_id)
     @sum_date = ((@reservation.end_date.to_time - @reservation.start_date.to_time) / 3600 / 24).to_i
+    @user = User.find(@room.user_id)
 
     #binding.pry
     @sum_price = @room.room_price * @reservation.guest_count * @sum_date.to_i
