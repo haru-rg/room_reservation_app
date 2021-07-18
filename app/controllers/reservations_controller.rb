@@ -4,6 +4,7 @@ class ReservationsController < ApplicationController
     @reservations = current_user.reservations.all
     @rooms = Room.all
     @quantity = current_user.reservations.count
+    @user = User.find(current_user.id)
   end
   def new
     @reservation = Reservation.new(params.permit(:start_date, :end_date, :guest_count, :room_id, :user_id))

@@ -8,6 +8,6 @@ class User < ApplicationRecord
 
   has_many :rooms, dependent: :destroy
   has_many :reservations, dependent: :destroy
-  belongs_to :home
+
   mount_uploader :image, ImageUploader
 end
