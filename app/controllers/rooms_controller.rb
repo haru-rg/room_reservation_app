@@ -1,0 +1,79 @@
+class RoomsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show search]
+
+  def index
+    @rooms = Room.all
+    @quantity = Room.count
+    @user = User.find(current_user.id)
+  end
+
+  def new
+    @user = User.find(current_user.id)
+    @room = Room.new
+  end
+
+  def create
+    @room = Room.new(params.require(:room).permit(:room_name, :room_introduction, :room_price, :room_address, :room_image))
+    @room.user_id = current_user.id
+    if @room.save
+      redirect_to :rooms
+    else
+      render 'new'
+    end
+  end
+
+  def show
+    @room = Room.find(params[:id])
+    @user = User.find(@room.user_id)
+    @reservation = Reservation.new
+  end
+
+  def edit
+    @room = Room.find(params[:id])
+  end
+
+  def update
+    @room = Room.find(params[:id])
+    if @room.update(params.require(:room).permit(:room_name, :room_introduction, :room_price, :room_address, :room_image))
+      redirect_to :rooms
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
+    redirect_to :rooms
+  end
+
+  def search
+    if user_signed_in?
+      @user = User.find(current_user.id)
+      @keyword = params[:keyword] #search_fieldのk:eywordから値を持ってきている
+      @area = params[:area] #search_fieldの:areaから値を持ってきている
+      @rooms = Room.search(@keyword, @area) #room.rbのsearch関数に引数が２つある。room.rbでif文を使って出しわけている。
+      @quantity = @rooms.count
+      render 'rooms/index'
+    else
+      @keyword = params[:keyword] #search_fieldのk:eywordから値を持ってきている
+      @area = params[:area] #search_fieldの:areaから値を持ってきている
+      @rooms = Room.search(@keyword, @area) #room.rbのsearch関数に引数が２つある。room.rbでif文を使って出しわけている。
+      @quantity = @rooms.count
+      render 'rooms/index'
+    end
+  end
+
+  # def searc1h
+  #   @rooms = Room.search(params[:area])
+  #   @area = params[:area]
+  #   render 'rooms/index'
+  # end
+
+  def post
+    @user = User.find(current_user.id)
+    @rooms = current_user.rooms.all ##現在のユーザーのもののみ表示
+    @quantity = current_user.rooms.count
+    render 'rooms/post'
+  end
+end

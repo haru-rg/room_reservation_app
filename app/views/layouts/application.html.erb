@@ -2,15 +2,57 @@
 <html>
   <head>
     <title>RoomReservationApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav>
+        <div>
+          <div class="header-inner-left">
+            <a href="/home/index"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="サイトのロゴ画像" /></a>
+            <%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
+              <%= f.search_field :keyword, value: @keyword, placeholder: 'キーワード' %>
+              <% f.submit '検索' %>
+            <% end %>
+            <%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
+              <%= f.search_field :area, value: @area, placeholder: 'エリア' %>
+              <% f.submit '検索' %>
+            <% end %>
+          </div>
+          <% if user_signed_in? %>
+            <div class="header-inner-right">
+              <div class="name-white"><%= @user.name %></div>
+              <div class="menu-navi">
+                <label for="menu"><%= image_tag @user.image.to_s, class: 'user-img' %></label>
+                <input type="checkbox" id="menu" />
+                <ul class="dropdown">
+                  <li class="dropitem"><%= link_to 'ホーム', home_index_path %></li>
+                  <li class="dropitem"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                  <li class="dropitem"><%= link_to 'ユーザー設定', user_path(current_user) %></li>
+                  <li class="dropitem"><%= link_to '全ルーム(index)', rooms_path %></li>
+                  <li class="dropitem"><%= link_to '登録済みルーム(rooms/post)', post_rooms_path %></li>
+                  <li class="dropitem"><%= link_to '予約済みルーム', reservations_path %></li>
+                  <li class="dropitem"><%= link_to 'ルーム新規登録', new_room_path %></li>
+                </ul>
+              </div>
+            </div>
+          <% else %>
+            <div class="header-inner-right">
+              <div class="button-blue"><%= link_to 'ログイン', new_user_session_path, class: 'text-white' %></div>
+              <div class="button-gray"><%= link_to '登録する', new_user_registration_path, class: 'text-white' %></div>
+            </div>
+          <% end %>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
+    <footer>
+      <p>© 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>

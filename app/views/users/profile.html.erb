@@ -1,0 +1,30 @@
+<div class="myaccount">
+  <div class="myaccount_index_nav">
+    <div class="room-blue-center">
+      <%= link_to 'アカウント', user_path(current_user), class: 'room-blue' %>
+    </div>
+    <div class="room-blue-center">
+      <%= link_to 'プロフィール', profile_user_path, class: 'room-blue' %>
+    </div>
+  </div>
+  <div class="myaccount_index">
+    <div class="myaccount_index_inner">
+      <h1>プロフィール</h1>
+      <table>
+        <tr>
+          <td>名前</td>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <td>アイコン画像</td>
+          <td><%= image_tag @user.image.to_s, class: 'user-img' %></td>
+        </tr>
+        <tr>
+          <td>自己紹介</td>
+          <td><%= @user.introduction %></td>
+        </tr>
+      </table>
+      <%= link_to '編集', edit_user_registration_path, class: 'text-white button-blue excep ' %>
+    </div>
+  </div>
+</div>

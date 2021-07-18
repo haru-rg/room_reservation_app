@@ -1,0 +1,234 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.room_index {
+  padding: 30px 60px;
+}
+
+.search_count {
+  font-size: 1.5rem;
+}
+
+.room_row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.room-item {
+  width: calc((100% - 72px) / 3);
+  height: 350px;
+  position: relative;
+  margin: 10px;
+  text-align: left;
+  border: solid 2px #f6f8f9;
+}
+.room-image {
+  position: relative;
+  width: 100%;
+  background: #f6f8f9;
+  height: 200px;
+}
+.room-img {
+  width: 100%;
+  height: 180px;
+  position: absolute;
+  top: 20px;
+  object-fit: cover;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.room-intro {
+  margin: 15px;
+  text-decoration: none;
+}
+.room-name-font {
+  font-size: 18px;
+  font-weight: bold;
+  color: #909090;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.room-address-font {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.price-right {
+  text-align: right;
+  color: black;
+}
+
+.room-img-post {
+  width: 200px;
+  height: auto;
+}
+
+thead {
+  text-align: center;
+}
+
+table > tbody > tr > td {
+  border-bottom: 1px solid #eaedef;
+  color: black;
+}
+
+table > thead > tr > th {
+  border-top: 1px solid #eaedef;
+  border-bottom: 1px solid #eaedef;
+}
+
+.room-blue {
+  font-weight: bold;
+  color: #4a90e2;
+  text-decoration: underline;
+}
+
+.room-blue-center {
+  font-weight: bold;
+  color: #4a90e2;
+  border-right: 3px solid #4a90e2;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.myaccount {
+  width: 100%;
+  overflow: hidden;
+}
+
+.myaccount_index_nav {
+  height: 100%;
+  width: calc((100% - 2px) * 0.15);
+  float: left;
+  background-color: white;
+  text-align: center;
+}
+.myaccount_index {
+  height: 100%;
+  width: calc((100% - 2px) * 0.85);
+  float: right;
+  background-color: #f6f8f9;
+  border-left: 2px solid #e2e2e2;
+}
+
+.myaccount_index_inner {
+  background-color: white;
+  margin: 50px;
+  padding: 20px;
+}
+.button-blue-room {
+  width: 100px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 1px;
+  color: #fff;
+  background-color: #4a90e2;
+  border-color: #4a90e2;
+  margin: 16px 5px;
+  justify-content: center;
+  align-items: center;
+  font-size: medium;
+}
+
+td .hissu2::after {
+  content: "必須";
+  color: #fff;
+  background-color: #ff0000a8;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 0 10px 0 5px;
+}
+
+.field {
+  width: 100%;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin: 15px 0px;
+}
+.field-img {
+  margin: 15px 0px;
+}
+.room-show-all {
+  width: 100%;
+  overflow: hidden;
+}
+.room-show-all-inner {
+  padding: 30px 78px;
+  overflow: hidden;
+}
+.room-show {
+  height: 100%;
+  width: 65%;
+  background-color: white;
+  text-align: center;
+  float: left;
+}
+.room-show-reservation {
+  height: 100%;
+  width: 35%;
+  background-color: #f6f8f9;
+  float: left;
+}
+
+.room-show-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.user-image-maru {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 20px;
+}
+
+.room-user-img-left {
+  float: left;
+}
+.room-room-name-left {
+  float: left;
+}
+
+.room-room-intro-center {
+}
+.overflow {
+  overflow: hidden;
+}
+
+.text-bold {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 0;
+}
+
+.topbtm-border {
+  border-top: 1px solid #eaedef;
+  border-bottom: 1px solid #eaedef;
+}
+
+.text-left {
+  text-align: left;
+  margin: 10px;
+}
+.room-show-right {
+  height: 100%;
+  width: 35%;
+  float: left;
+}
+.room-show-right-inner {
+  margin: 0px 30px;
+  padding: 30px;
+  border: 1px solid #eaedef;
+}

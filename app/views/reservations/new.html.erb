@@ -1,0 +1,42 @@
+<div class="account-new">
+  <div class="account-new-area">
+    <h1>予約内容確認</h1>
+
+    <div class="account-new-area-input text-left">
+      <%= form_with method: :post, url:reservations_path do |f| %>
+        <%= f.hidden_field :room_id, value: @room_id %>
+        <%= f.hidden_field :user_id, value: @user_id %>
+        <%= f.hidden_field :room_price, value: @room_price %>
+
+        <div>
+          <h3>¥ <%= @room_price %> / 日</h3>
+        </div>
+        <div>
+          <label>開始日</label><br />
+          <%= f.datetime_field :start_date, value: @start_date, readonly: true, class: 'input_form_100' %>
+        </div>
+        <div>
+          <label>終了日</label><br />
+          <%= f.datetime_field :end_date, value: @end_date, readonly: true, class: 'input_form_100' %>
+        </div>
+
+        <div>
+          <p>使用日数： <%= @sum_date %>日</p>
+          <%= f.hidden_field :sum_date, value: @sum_date, readonly: true %>
+        </div>
+        <div class="topbtm-border">
+          <p>人数：<%= @guest_count %>人</p>
+          <%= f.hidden_field :guest_count, value: @guest_count, readonly: true %>
+        </div>
+        <div>
+          <label>合計金額</label><br />
+          <%= f.number_field :sum_price, value: @sum_price, readonly: true, class: 'input_form_100' %>
+        </div>
+
+        <p>上記内容でよろしければ「予約を確定」を押してください</p>
+        <%= f.submit '予約を確定', class: 'search-button-blue' %><br />
+        <div class="search-button-gray"><%= link_to 'ルーム詳細に戻る', room_path(@room_id), class: 'text-white' %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
